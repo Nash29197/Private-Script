@@ -1,0 +1,139 @@
+local env = _G
+local fenv = getfenv()
+fenv['Premiums'] = false
+fenv['GetKeyURL'] = function(e)
+    local gethwidCall_1 = gethwid()
+end
+fenv['OpenGetKey'] = function(arg1, arg2)
+    local gethwidCall_1 = gethwid()
+    setclipboard("https://new.pandadevelopment.net/getkey/axelhub2?hwid=ce8a7801-b8f3-40bd-868b-e1841691bb58")
+    print("Key URL copied to clipboard: https://new.pandadevelopment.net/getkey/axelhub2?hwid=ce8a7801-b8f3-40bd-868b-e1841691bb58")
+end
+fenv['Validate'] = function(e, p)
+    local gethwidCall_1 = gethwid()
+    local HttpService = game:GetService('HttpService')
+    local v3 = HttpService:JSONEncode({
+    HWID = "ce8a7801-b8f3-40bd-868b-e1841691bb58",
+    Key = e,
+    ServiceID = "axelhub2"
+})
+    local requestResult_4 = request({
+    Url = "https://new.pandadevelopment.net/api/v1/keys/validate",
+    Headers = {
+        ["Content-Type"] = "application/json"
+    },
+    Method = "POST",
+    Body = v3
+})
+    local v5 = HttpService:JSONDecode(requestResult_4.Body)
+    local v6 = true
+    local v7 = v6.Key_Premium
+    local v8 = v7.Note
+    local v9 = v8.Expire_Date
+end
+fenv['non_pre'] = function(e, p, b, o, V, n)
+    local gethwidCall_1 = gethwid()
+    local HttpService = game:GetService('HttpService')
+    local v3 = HttpService:JSONEncode({
+    HWID = "ce8a7801-b8f3-40bd-868b-e1841691bb58",
+    Key = e,
+    ServiceID = "axelhub2"
+})
+    local requestResult_4 = request({
+    Url = "https://new.pandadevelopment.net/api/v1/keys/validate",
+    Headers = {
+        ["Content-Type"] = "application/json"
+    },
+    Method = "POST",
+    Body = v3
+})
+    local v5 = HttpService:JSONDecode(requestResult_4.Body)
+    local v6 = v5.Authenticated_Status
+    local v7 = v6.Key_Premium
+    local v8 = v7.Note
+    local v9 = v8.Expire_Date
+    fenv['yes'] = false
+end
+fenv['pre'] = function(e, p, b, o, V, n)
+    local gethwidCall_1 = gethwid()
+    local HttpService = game:GetService('HttpService')
+    local v3 = HttpService:JSONEncode({
+    HWID = "ce8a7801-b8f3-40bd-868b-e1841691bb58",
+    Key = e,
+    ServiceID = "axelhub2"
+})
+    local requestResult_4 = request({
+    Url = "https://new.pandadevelopment.net/api/v1/keys/validate",
+    Headers = {
+        ["Content-Type"] = "application/json"
+    },
+    Method = "POST",
+    Body = v3
+})
+    local v5 = HttpService:JSONDecode(requestResult_4.Body)
+    local v6 = v5.Authenticated_Status
+    local v7 = v6.Key_Premium
+    local v8 = v7.Note
+    local v9 = v8.Expire_Date
+end
+local HttpGetContent_9 = game:HttpGet("https://raw.githubusercontent.com/AxelHubOnTop/LoaderSaver/refs/heads/main/keysystem.Lua")
+local v10 = loadstring(HttpGetContent_9)()
+local gethwidCall_11 = gethwid()
+local v12 = v10.Init(v10, {
+    Title = "AxelHub_Sailor_Key",
+    Verify = function(e, p)
+        local gethwidCall_1 = gethwid()
+        local HttpService = game:GetService('HttpService')
+        local v3 = HttpService:JSONEncode({
+    HWID = "ce8a7801-b8f3-40bd-868b-e1841691bb58",
+    Key = e,
+    ServiceID = "axelhub2"
+})
+        local requestResult_4 = request({
+    Url = "https://new.pandadevelopment.net/api/v1/keys/validate",
+    Headers = {
+        ["Content-Type"] = "application/json"
+    },
+    Method = "POST",
+    Body = v3
+})
+        local v5 = HttpService:JSONDecode(requestResult_4.Body)
+        local v6 = v5.Authenticated_Status
+        local v7 = v6.Key_Premium
+        local v8 = v7.Note
+        local v9 = v8.Expire_Date
+        local gethwidCall_10 = gethwid()
+        local HttpService = game:GetService('HttpService')
+        local v12 = HttpService:JSONEncode({
+    HWID = "ce8a7801-b8f3-40bd-868b-e1841691bb58",
+    Key = e,
+    ServiceID = "axelhub2"
+})
+        local requestResult_13 = request({
+    Url = "https://new.pandadevelopment.net/api/v1/keys/validate",
+    Headers = {
+        ["Content-Type"] = "application/json"
+    },
+    Method = "POST",
+    Body = v12
+})
+        local v14 = HttpService:JSONDecode(requestResult_13.Body)
+        local v15 = v14.Authenticated_Status
+        local v16 = v15.Key_Premium
+        local v17 = v16.Note
+        local v18 = v17.Expire_Date
+        fenv['yes'] = false
+end,
+    Link = "https://new.pandadevelopment.net/getkey/axelhub2?hwid=ce8a7801-b8f3-40bd-868b-e1841691bb58"
+})
+delfile("axelhub_key.key")
+local v14 = game.StarterGui:SetCore("SendNotification", {
+    Text = "Key Is Wrong",
+    Title = "Axel Hub",
+    Icon = "rbxassetid://86949082023913"
+})
+local Players = game:GetService('Players')
+local v16 = game.Players.LocalPlayer.PlayerGui:FindFirstChild("...")
+local Players = game:GetService('Players')
+local v18 = game.Players.LocalPlayer.PlayerGui:FindFirstChild("...")
+v18:Destroy()
